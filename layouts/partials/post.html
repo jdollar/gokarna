@@ -34,6 +34,7 @@
 
 </div>
 
+{{ $coralCss := resources.Get "css/coral.css" | minify }}
 <div id="coral_thread"></div>
 <script type="text/javascript">
   (function() {
@@ -46,15 +47,13 @@
               id: "coral_thread",
               autoRender: true,
               rootURL: 'https://coral.joeldollarhide.com',
-              // Uncomment these lines and replace with the ID of the
-              // story's ID and URL from your CMS to provide the
-              // tightest integration. Refer to our documentation at
-              // https://docs.coralproject.net for all the configuration
-              // options.
               storyID: '{{ .File.UniqueID }}',
               storyURL: '{{ .Page.Permalink }}',
+              customCSSURL: '{{ $coralCss.RelPermalink }}'
           });
       };
       (d.head || d.body).appendChild(s);
   })();
 </script>
+
+
