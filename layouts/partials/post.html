@@ -49,7 +49,7 @@
               rootURL: 'https://coral.joeldollarhide.com',
               storyID: '{{ .File.UniqueID }}',
               storyURL: '{{ .Page.Permalink }}',
-              customCSSURL: '{{ $coralCss.RelPermalink }}'
+              customCSSURL: '{{ absURL $coralCss.RelPermalink }}'
           });
       };
       (d.head || d.body).appendChild(s);
