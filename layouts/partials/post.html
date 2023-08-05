@@ -32,10 +32,10 @@
         {{ end }}
     </div>
 
+    <div id="coral_thread"></div>
 </div>
 
 {{ $coralCss := resources.Get "css/coral.css" | minify }}
-<div id="coral_thread"></div>
 <script type="text/javascript">
   (function() {
       var d = document, s = d.createElement('script');
@@ -45,6 +45,7 @@
       s.onload = function() {
           Coral.createStreamEmbed({
               id: "coral_thread",
+              containerClassName: "coralContainer",
               autoRender: true,
               rootURL: 'https://coral.joeldollarhide.com',
               storyID: '{{ .File.UniqueID }}',
